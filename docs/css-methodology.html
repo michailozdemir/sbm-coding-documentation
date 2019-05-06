@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>CSS Методология | SimplyBook.me - Coding Documentation</title>
+    <meta content="" name="description">
+
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta content="noindex" name="robots">
+    <meta content="noindex" name="googlebot">
+
+    <link href="img/favicon/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/favicon/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+    <link href="img/favicon/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta content="#000" name="theme-color">
+    <!-- Windows Phone -->
+    <meta content="#000" name="msapplication-navbutton-color">
+    <!-- iOS Safari -->
+    <meta content="#000" name="apple-mobile-web-app-status-bar-style">
+
+    <link href="css/main.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.6/build/styles/github.min.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.6/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body>
+<div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+</div>
+<header class="header">
+    <a href="/" class="header__logo" href="/"><img class="header__logo-img" src="img/simplybook.svg"/></a>
+    <nav class="header__navigation navbar">
+        <ul class="navbar__list">
+            <li class="navbar__item"><a href="/">Главная</a></li>
+            <li class="navbar__item"><a href="semantic.html">Семантика</a></li>
+            <li class="navbar__item"><a href="css-methodology.html">CSS Методология</a></li>
+            <li class="navbar__item"><a href="#">Советы</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="content section">
+    <header class="content__header">
+        <h1 class="title">CSS Методология</h1>
+    </header>
+
+    <article class="content__body">
+        <p class="content__text text-align--left">
+            Данный раздел покрывает вопрос CSS методологии, какую методологию использовать, как правильно называть классы, как НЕ стоит стилизировать элементы.</p>
+    </article>
+
+    <article class="content__body">
+
+        <h2 class="heading">БЭМ</h2>
+
+        <p class="content__text text-align--left">
+           БЭМ (Блок-Элемент-Модификатор) является одной из самых популярных и удобных методологий для использования. Изначально может показаться что она сложная, но это не так.
+            Ее использование со временем упростит верстку, именование классов, редактирование уже готовых страниц, проектов и так далее.
+        </p>
+
+        <h3 class="subtitle">Обозначения: </h3>
+        <p class="content__text text-align--left">
+            <code class="language-html inline">--</code> - (двойной дефис) означает вариант элемента.<br>
+            <code class="language-html inline">__</code> - (двойное подчёркивание) означает дочерний элемент.
+        </p>
+
+        <p class="content__text text-align--left">
+            Пример:
+        </p>
+        <pre>
+            <code class="language-html">&lt;button class='btn btn--warning'&gt; &lt;!-- Variant .btn &mdash; .btn--warning --&gt;
+  &lt;div class='btn__text'&gt;&lt;/div&gt; &lt;!-- Child element .btn &mdash; .btn__text--&gt;
+&lt;/button&gt;</code>
+        </pre>
+
+        <pre>
+            <code class="language-css">.btn--warning {
+/* Here you can understand that the style will be applied to warning buttons */
+}
+
+.btn__text {
+/* Same here. It is button text! */
+}</code>
+        </pre>
+
+        <p class="content__text text-align--left">
+            Пример (элемент списка):
+        </p>
+        <pre>
+            <code class="language-html">&lt;li class=&quot;list__item item&quot;&gt;
+  &lt;h3 class=&quot;item__title&quot;&gt;Title&lt;/h3&gt;
+  &lt;p class=&quot;item__text&quot;&gt;Description&lt;/p&gt;
+&lt;/li&gt;</code>
+        </pre>
+    </article>
+
+    <article class="content__body">
+
+        <h2 class="heading">Префикс js</h2>
+
+        <p class="content__text text-align--left">
+            Если элемент используется для JavaScript, не стоит полагаться на CSS-стили. Проще задать специальный префикс вроде <code class="language-html inline">js</code>
+        </p>
+
+        <p class="content__text text-align--left">
+            Пример:
+        </p>
+
+        <pre>
+            <code class="language-html">&lt;a class=&quot;btn btn--main js-demo&quot;&gt;Click for demo!&lt;/a&gt;
+            </code>
+        </pre>
+    </article>
+
+    <article class="content__body">
+
+        <h2 class="heading">Расположения текста</h2>
+
+        <p class="content__text text-align--left">
+            Для расположения текста по определенной заданой стороне можно задать отдельным классом, который легко использовать и запомнить <code class="language-html inline">text-align</code>.<br>
+            И его вариантами: <code class="language-html inline">--left</code>, <code class="language-html inline">--center</code>, <code class="language-html inline">--right</code>
+        </p>
+
+        <p class="content__text text-align--left">
+            Пример:
+        </p>
+
+        <pre>
+            <code class="language-html">&lt;p class=&quot;item__text text-align--center&quot;&gt;Item text!&lt;/p&gt;
+            </code>
+        </pre>
+
+        <pre>
+            <code class="language-css">.text-align {
+  &--left {
+    text-align: left;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--right {
+    text-align: right;
+  }
+ }</code>
+        </pre>
+    </article>
+
+    <article class="content__body">
+
+        <h2 class="heading">Префикс is</h2>
+
+        <p class="content__text text-align--left">
+            Манипуляция состоянием происходит очень часто. Поэтому придерживаться строгого соглашения наименования для состояния будет очень полезно.<br>
+            Пример ниже объясняет то, что пункт меню является активным. Стилизирование активного пункта выполняется сменой цвета.
+        </p>
+
+        <p class="content__text text-align--left">
+            Пример:
+        </p>
+
+        <pre>
+            <code class="language-html">&lt;a class=&quot;menu__link is-active&quot;&gt;Главная&lt;/li&gt;</code>
+        </pre>
+
+        <pre>
+            <code class="language-css">.is-active {
+  color: $primary-color;
+ }</code>
+        </pre>
+    </article>
+
+    <article class="content__body">
+        <h2 class="heading">Слова, которые стоит использовать в CSS-классах</h2>
+        <p class="content__text text-align--left">Унифицирование слов, используемых в классах поможет в работе каждому кодеру в команде.<br>Стоит вынести основные классы для разных элементов на странице.</p>
+
+        <h3 class="subtitle">Изображения</h3>
+        <code class="language-css inline">image</code>, <code class="language-css inline">picture</code> - картинка
+        <br>
+        <br>
+        <code class="language-css inline">icon</code> - иконка
+        <br>
+        <br>
+        <code class="language-css inline">logo</code>, <code class="language-css inline">picture</code> - логотип
+        <br>
+        <br>
+        <code class="language-css inline">avatar</code>, <code class="language-css inline">picture</code> - аватар, профиль пользователя
+        <br>
+        <br>
+        <br>
+
+        <h3 class="subtitle">Текст</h3>
+        <code class="language-css inline">title</code> - заголовок
+        <br>
+        <br>
+        <code class="language-css inline">subtitle</code> - подзаголовок
+        <br>
+        <br>
+        <code class="language-css inline">heading</code> - заголовок (меньший по важности)
+        <br>
+        <br>
+        <code class="language-css inline">text</code> - текст
+        <br>
+        <br>
+        <code class="language-css inline">link</code> - ссылка
+        <br>
+        <br>
+        <code class="language-css inline">copyright</code> - копирайт
+        <br>
+        <br>
+        <code class="language-css inline">description</code> - описание
+        <br>
+        <br>
+        <br>
+
+        <h3 class="subtitle">Блоки</h3>
+        <code class="language-css inline">header</code> - шапка
+        <br>
+        <br>
+        <code class="language-css inline">footer</code> - подвал, нижняя часть секции или блока
+        <br>
+        <br>
+        <code class="language-css inline">section</code> - секция, раздел на странице
+        <br>
+        <br>
+        <code class="language-css inline">sidebar</code> - боковая колонка (страницы или элемента)
+        <br>
+        <br>
+        <br>
+
+        <h3 class="subtitle">Списки</h3>
+        <code class="language-css inline">list</code> - список
+        <br>
+        <br>
+        <code class="language-css inline">item</code> - айтем, карточка списка, элемент списка
+        <br>
+        <br>
+        <br>
+
+        <h3 class="subtitle">Раскладка</h3>
+        <code class="language-css inline">wrapper</code> - обертка, подойдет для кнопок или чего-то подобного
+        <br>
+        <br>
+        <br>
+
+        <h3 class="subtitle">Элементы управления</h3>
+        <code class="language-css inline">btn</code> - кнопка
+        <br>
+        <br>
+        <code class="language-css inline">dropdown</code> - выпадающий список
+        <br>
+        <br>
+        <br>
+
+        <h3 class="subtitle">Размеры</h3>
+        <code class="language-css inline">big</code> - большой
+        <br>
+        <br>
+        <code class="language-css inline">medium</code> - средний
+        <br>
+        <br>
+        <code class="language-css inline">small</code> - маленький
+        <br>
+        <br>
+        <br>
+    </article>
+
+</section>
+
+
+<script src="js/scripts.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Семантика | SimplyBook.me - Coding Documentation</title>
+    <meta content="" name="description">
+
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta content="noindex" name="robots">
+    <meta content="noindex" name="googlebot">
+
+    <link href="img/favicon/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="img/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="img/favicon/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+    <link href="img/favicon/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta content="#000" name="theme-color">
+    <!-- Windows Phone -->
+    <meta content="#000" name="msapplication-navbutton-color">
+    <!-- iOS Safari -->
+    <meta content="#000" name="apple-mobile-web-app-status-bar-style">
+
+    <link href="css/main.min.css" rel="stylesheet">
+
+    <link href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.6/build/styles/github.min.css"
+          rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.6/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body>
+<div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+</div>
+<header class="header">
+    <a href="/" class="header__logo" href="/"><img class="header__logo-img" src="img/simplybook.svg"/></a>
+    <nav class="header__navigation navbar">
+        <ul class="navbar__list">
+            <li class="navbar__item"><a href="/">Главная</a></li>
+            <li class="navbar__item"><a href="semantic.html">Семантика</a></li>
+            <li class="navbar__item"><a href="css-methodology.html">CSS Методология</a></li>
+            <li class="navbar__item"><a href="#">Советы</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="content section">
+    <header class="content__header">
+        <h1 class="title">Семантика</h1>
+    </header>
+
+    <article class="content__body">
+        <p class="content__text text-align--left">
+            Семантика играет одну из важных ролей в построении правильной структуры и определения точных тегов HTML
+            документа.
+            Эта дополнительная информация помогает роботам/индексаторам, таким как Google лучше понять какой контент
+            важен,
+            какой является второстепенным, какой используется для навигации и так далее.</p>
+        <p class="content__text text-align--left">
+            Список самых основных семантических тегов:
+        </p>
+        <pre>
+		<code class="language-html">&lt;header&gt;
+&lt;nav&gt;
+&lt;main&gt;
+&lt;section&gt;
+&lt;article&gt;
+&lt;aside&gt;
+&lt;footer&gt;</code>
+	</pre>
+
+        <p class="content__text text-align--left">
+            Данный раздел документации создан с целью унификации и единого использования одинаковых HTML-тэгов,
+            построение документа страниц SimplyBook.me.
+        </p>
+    </article>
+
+    <article class="content__body">
+        <h2 class="heading">Выбор подходящего HTML-тэга для елемента</h2>
+        <p class="content__text text-align--left">
+            Всегда стоит использовать корректный тэг для определенного элемента.<br>
+            Если это это поле ввода, то <code class="language-html inline">input</code>, <code class="language-html inline">p</code> - текст, <code class="language-html inline">h1-6</code> - заголовки и т.д.
+        </p>
+        <p class="content__text text-align--left">
+            Не стоит плодить <code class="language-html inline">div</code> в теле документа. Никакой семантики в этом нет!
+        </p>
+    </article>
+
+    <article class="content__body">
+
+        <h2 class="heading">Блок/секция</h2>
+
+        <p class="content__text text-align--left">
+            Каждый блок на странице должен быть обернут в <code class="language-html inline">&lt;section&gt;</code>. У
+            <code class="language-html inline">&lt;section&gt;</code> может и желательно должны быть свои <code class="language-html inline">&lt;header&gt;</code> и <code class="language-html inline">&lt;footer&gt;</code>.
+        </p>
+
+        <p class="content__text text-align--left">
+            Внутри <code class="language-html inline">&lt;header&gt;</code> могут находиться:<br>
+            <code class="language-html inline">&lt;h2&gt;</code> - заголовок секции (<code class="language-html inline">&lt;h1&gt;</code>
+            если это основной/первый блок или секция)<br>
+            <code class="language-html inline">&lt;p&gt;</code> - подзаголовок секции
+        </p>
+
+        <p class="content__text text-align--left">
+            Внутри <code class="language-html inline">&lt;footer&gt;</code> могут находиться:<br>
+            Кнопки, кастомные ссылки и т.д.
+        </p>
+
+        <p class="content__text text-align--left">
+            Пример:
+        </p>
+        <pre>
+			<code class="language-html">&lt;section class=&quot;section&quot;&gt;
+
+  &lt;header class=&quot;section__header&quot;&gt;
+    &lt;h2 class=&quot;hero-title&quot;&gt;Block title&lt;/h2&gt;
+    &lt;p class=&quot;subtitle&quot;&gt;Block subtitle&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;footer class=&quot;section__footer&quot;&gt;
+    &lt;a class=&quot;btn&quot; href=&quot;linktosomewhere&quot;&gt;Block button&lt;/a&gt;
+  &lt;/footer&gt;
+
+&lt;/section&gt;</code>
+		</pre>
+    </article>
+
+    <article class="content__body">
+
+        <h2 class="heading">Оформление статьи в секции</h2>
+        <p class="content__text text-align--left">
+            Оформление статьи в секции лучшего всего выполнять с помощью <code class="language-html inline">&lt;article&gt;</code>. У каждой
+            <code class="language-html inline">&lt;article&gt;</code> может быть свой заголовок <code class="language-html inline">&lt;h3&gt;</code> и описание<code class="language-html inline">&lt;p&gt;</code>.
+        </p>
+        <p class="content__text text-align--left">
+            Пример:
+        </p>
+        <pre>
+			<code class="language-html">&lt;section class=&quot;section&quot;&gt;
+
+  &lt;header class=&quot;section__header&quot;&gt;
+    &lt;h2 class=&quot;hero-title&quot;&gt;Block title&lt;/h2&gt;
+    &lt;p class=&quot;subtitle&quot;&gt;Block subtitle&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;article class=&quot;article&quot;&gt;
+    &lt;h3 class=&quot;article__title&quot;&gt;What got improved in SimplyBook.me?&lt;/h3&gt;
+    &lt;p class=&quot;article__text&quot;&gt;Semantic for sure!&lt;/p&gt;
+  &lt;/article&gt;
+
+  &lt;footer class=&quot;section__footer&quot;&gt;
+    &lt;a class=&quot;btn&quot; href=&quot;linktosomewhere&quot;&gt;Block link&lt;/a&gt;
+  &lt;/footer&gt;
+
+&lt;/section&gt;</code>
+		</pre>
+
+
+    </article>
+
+    <article class="content__body">
+
+        <h2 class="heading">Оформление карточек, списков, айтемов</h2>
+        <p class="content__text text-align--left">
+            Списки, карточки лучше всего оформлять с помощью списочных тэгов HTML. <code class="language-html inline">&lt;ul&gt;</code> и <code class="language-html inline">&lt;li&gt;</code>.
+            Ведь карточки, это тот же список, только стилистически оформленный в другом виде.
+        </p>
+        <p class="content__text text-align--left">
+            Пример без изображения:
+        </p>
+        <pre>
+			<code class="language-html">&lt;ul class=&quot;features&quot;&gt;
+  &lt;li class=&quot;features__item item-features&quot;&gt;
+    &lt;h3 class=&quot;item-features__title&quot;&gt;Item title&lt;/h3&gt;
+    &lt;p class=&quot;item-features__text&quot;&gt;Item text&lt;/p&gt;
+  &lt;/li&gt;
+
+  &lt;li class=&quot;features__item item-features&quot;&gt;
+    &lt;h3 class=&quot;item-features__title&quot;&gt;Item title&lt;/h3&gt;
+    &lt;p class=&quot;item-features__text&quot;&gt;Item text&lt;/p&gt;
+  &lt;/li&gt;
+
+  &lt;li class=&quot;features__item item-features&quot;&gt;
+    &lt;h3 class=&quot;item-features__title&quot;&gt;Item title&lt;/h3&gt;
+    &lt;p class=&quot;item-features__text&quot;&gt;Item text&lt;/p&gt;
+  &lt;/li&gt;
+
+&lt;/ul&gt;</code>
+		</pre>
+
+        <p class="content__text text-align--left">
+            Пример c изображением:
+        </p>
+        <pre>
+			<code class="language-html">&lt;ul class=&quot;features&quot;&gt;
+  &lt;li class=&quot;features__item item-features&quot;&gt;
+    &lt;picture class=&quot;item-features__picture&quot;&gt;&lt;img class=&quot;item-features__image&quot; alt=&quot;Image alt text&quot;/&gt;&lt;/picture&gt;
+      &lt;h3 class=&quot;item-features__title&quot;&gt;Item title&lt;/h3&gt;
+      &lt;p class=&quot;item-features__text&quot;&gt;Item text&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code>
+		</pre>
+    </article>
+
+    <article class="content__body">
+
+        <h2 class="heading">Категоризация заголовков</h2>
+        <p class="content__text text-align--left">
+            <code class="inline language-html">&lt;h1&gt;</code> - единый основной заголовок. Должен быть только один на страницу.<br>
+            <code class="inline language-html">&lt;h2&gt;</code> - для блоков, секций, статей. <br>
+            <code class="inline language-html">&lt;h3&gt;</code> - для айтемов в секциях, блоках. <br>
+        </p>
+
+
+    </article>
+
+    <article class="content__body">
+
+        <h2 class="heading">Категоризация текста</h2>
+        <p class="content__text text-align--left">
+            <code class="inline language-html">&lt;p&gt;</code> - основной текст на странице, в секциях, статьях.<br>
+            <code class="inline language-html">&lt;span&gt;</code> - текст используемый в качестве декоративных элементов.<br>
+        </p>
+
+
+    </article>
+
+    <article class="content__body border-none">
+
+        <h2 class="heading">Изображения</h2>
+        <p class="content__text text-align--left">
+            Изображения желательно оборачивать в специальный HTML-тэг <code class="inline language-html">&lt;picture&gt;</code>. Само изображение должно иметь <code class="inline language-html">data-src</code> атрибут для инициализации lazy-loading (постепенной загрузки) и <code class="inline language-html">alt</code> атрибут для текстового описания.
+        </p>
+
+        <p class="content__text text-align--left">
+            Пример:
+        </p>
+        <pre>
+            <code class="language-html">&lt;picture class=&quot;item__picture&quot;&gt;
+  &lt;img class=&quot;item__image&quot; data-src=&quot;/img/path&quot; alt=&quot;Image title&quot;/&gt;
+&lt;/picture&gt;</code>
+        </pre>
+
+
+    </article>
+</section>
+
+
+<script src="js/scripts.min.js"></script>
+
+</body>
+</html>
